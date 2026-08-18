@@ -53,6 +53,7 @@ h1 em,h2 em,h3 em{font-style:italic;color:var(--amber)}
 h1 .hot{font-style:italic;color:var(--orange)}
 p{margin:14px 0 0}
 .sec{padding:80px 0;border-top:1px solid var(--line)}
+section,header{scroll-margin-top:90px}
 .sechead{max-width:44em}
 .lede{color:var(--ink-soft);font-size:1.1rem}
 
@@ -96,8 +97,8 @@ nav{position:sticky;top:0;z-index:40;backdrop-filter:blur(10px);background:rgba(
 .opt input:checked::after{content:"";position:absolute;left:5.5px;top:2px;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
 .opt input:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 .opt:has(input:checked){border-color:var(--orange-cta);background:rgba(255,74,18,.08)}
-.opt .ot{font-weight:600;font-size:.96rem;line-height:1.3}
-.opt .od{font-size:.82rem;color:var(--ink-mute);margin-top:3px;line-height:1.4}
+.opt .ot{display:block;font-weight:600;font-size:.96rem;line-height:1.3}
+.opt .od{display:block;font-size:.82rem;color:var(--ink-mute);margin-top:3px;line-height:1.4}
 .fields{display:grid;gap:11px;margin-top:18px}
 .fields input[type=text],.fields input[type=email]{width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:rgba(0,0,0,.22);color:var(--ink);font-family:var(--body);font-size:.98rem}
 .fields input::placeholder{color:var(--ink-mute)}
@@ -128,12 +129,12 @@ nav{position:sticky;top:0;z-index:40;backdrop-filter:blur(10px);background:rgba(
 
 /* NPS RAIL */
 .rail{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:34px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-.rail div{padding:26px 24px;border-right:1px solid var(--line)}
-.rail div:last-child{border-right:none}
+.rail>div{padding:26px 24px;border-right:1px solid var(--line)}
+.rail>div:last-child{border-right:none}
 .rail .v{font-family:var(--display);font-size:2.6rem;font-weight:600;line-height:1}
 .rail .v.up{color:var(--good)}.rail .v.dn{color:var(--orange)}
 .rail .k{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);margin-top:10px}
-.rail div.hot{background:rgba(255,74,18,.09)}
+.rail>div.hot{background:rgba(255,74,18,.09)}
 
 /* GAPS */
 .gaps{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:40px}
@@ -173,7 +174,7 @@ nav{position:sticky;top:0;z-index:40;backdrop-filter:blur(10px);background:rgba(
 
 /* RISK REVERSAL */
 .nope{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
-.nope div{border:1px solid var(--line);border-radius:14px;padding:24px 22px;background:rgba(255,255,255,.02)}
+.nope>div{border:1px solid var(--line);border-radius:14px;padding:24px 22px;background:rgba(255,255,255,.02)}
 .nope .x{font-family:var(--mono);color:var(--good);font-size:1.1rem}
 .nope h5{font-family:var(--body);font-size:1rem;font-weight:600;margin:12px 0 0}
 .nope p{font-size:.89rem;color:var(--ink-mute);margin-top:7px}
@@ -196,7 +197,7 @@ nav{position:sticky;top:0;z-index:40;backdrop-filter:blur(10px);background:rgba(
 /* FOOTER */
 footer{border-top:1px solid var(--line);padding:48px 0 40px;background:rgba(0,0,0,.2)}
 .footgrid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:34px}
-.footgrid a{color:var(--ink-soft);text-decoration:none;font-size:.92rem;display:block;margin-bottom:9px}
+.footgrid a{color:var(--ink-soft);text-decoration:none;font-size:.92rem;display:block;padding:5px 0;margin-bottom:4px}
 .footgrid a:hover{color:var(--ink)}
 .footgrid h6{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mute);margin:0 0 16px;font-weight:600}
 .ficha{font-family:var(--mono);font-size:.72rem;line-height:2;color:var(--ink-mute);letter-spacing:.05em;text-transform:uppercase;margin-top:36px;padding-top:24px;border-top:1px solid var(--line)}
@@ -210,8 +211,8 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:rgba(0,0,
   .sec{padding:58px 0}
   .hero{padding:44px 0 52px}
   .rail{grid-template-columns:1fr}
-  .rail div{border-right:none;border-bottom:1px solid var(--line)}
-  .rail div:last-child{border-bottom:none}
+  .rail>div{border-right:none;border-bottom:1px solid var(--line)}
+  .rail>div:last-child{border-bottom:none}
 }
 @media(max-width:560px){
   .pgrid,.nope,.extras{grid-template-columns:1fr}
