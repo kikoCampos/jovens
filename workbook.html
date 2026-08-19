@@ -272,7 +272,8 @@ input[type=checkbox]:checked::after{content:"";position:absolute;left:6px;top:1p
 
 
 /* ── MEDIDOR DE EVOLUÇÃO ── */
-.medidor{position:sticky;top:62px;z-index:55;background:var(--papel2);border-bottom:2px solid var(--tinta)}
+.medidor{display:none}
+.js .medidor{position:sticky;top:62px;z-index:55;background:var(--papel2);border-bottom:2px solid var(--tinta)}
 .medin{max-width:var(--maxw);margin:0 auto;padding:9px 22px;display:grid;
   grid-template-columns:minmax(0,1fr) minmax(120px,240px) auto;gap:18px;align-items:center}
 .medtxt{min-width:0}
@@ -287,14 +288,24 @@ input[type=checkbox]:checked::after{content:"";position:absolute;left:6px;top:1p
 .mednum span{display:block;font-family:var(--mao);font-size:1.35rem;font-weight:700;line-height:1;color:var(--tinta)}
 .mednum em{display:block;font-family:var(--rot);font-style:normal;font-size:.66rem;color:var(--suave);margin-top:2px}
 
-/* ── UMA ETAPA POR VEZ ── */
+/* ── UMA ETAPA POR VEZ ──
+   A capa nasce visível no próprio CSS: se o JavaScript não rodar,
+   a pessoa ainda lê a abertura em vez de encontrar página em branco.
+   O script assume a partir daí e passa a controlar quem aparece. */
 .pg{display:none}
-.pg.on{display:block;animation:entra .28s ease}
+.pg:first-of-type{display:block}
+.js .pg:first-of-type{display:none}
+.pg.on,.js .pg.on{display:block;animation:entra .28s ease}
+.semjs{display:none}
+.pg:first-of-type .semjs{display:block;margin-top:26px;padding:16px 20px;
+  border:2.5px dashed var(--coral);border-radius:var(--rMao2);background:#FFF6F2;font-size:.92rem}
+.js .semjs{display:none!important}
 @keyframes entra{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .pg{scroll-margin-top:130px}
 .pg+.pg::before{display:none}
 
-.passonav{margin-top:34px;padding-top:20px;border-top:2px dashed var(--linha);
+.passonav{display:none}
+.js .passonav{margin-top:34px;padding-top:20px;border-top:2px dashed var(--linha);
   display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .passonav .btn{font-size:.94rem;padding:11px 26px}
 .passonav .avancar{font-size:1.05rem;padding:13px 34px}
@@ -348,7 +359,7 @@ input[type=checkbox]:checked::after{content:"";position:absolute;left:6px;top:1p
 @media print{
   @page{size:A4;margin:12mm 11mm}
   html,body{background:#fff!important}
-  header.top,#toc,.toast,.cnote,.psend,.passonav,.medidor,.baixar{display:none!important}
+  header.top,#toc,.toast,.cnote,.psend,.passonav,.medidor,.baixar,.semjs{display:none!important}
   .pg{display:block!important}
   main{max-width:none;padding:0}
   .pg{padding:0;page-break-before:always;break-before:page}
@@ -437,6 +448,7 @@ input[type=checkbox]:checked::after{content:"";position:absolute;left:6px;top:1p
           <div><b>Edição</b><span>Versão 1.1 · Agosto de 2026</span></div>
           <div><b>Autoria</b><span>Kiko Campos · kikocampos.com</span></div>
         </div>
+        <div class="semjs"><b>Ative o JavaScript para usar o caderno etapa por etapa.</b> Sem ele você vê só esta abertura — mas pode baixar o PDF preenchível ou o de impressão nos botões abaixo, que funcionam do mesmo jeito.</div>
         <div class="cnote">Tudo o que você escrever fica salvo <b>só neste navegador, neste computador</b>. Nada é enviado para lugar nenhum. Use <b>Salvar em PDF</b> no topo para guardar ou imprimir o seu caderno preenchido.</div>
         <div class="baixar">
           <span class="baixarrot">Prefere no papel ou no Acrobat?</span>
@@ -1335,6 +1347,7 @@ input[type=checkbox]:checked::after{content:"";position:absolute;left:6px;top:1p
 
 <script>
 (function(){
+  document.documentElement.className+=' js';   // libera o modo etapa
   var KEY='jt2026_workbook_v1';
   var data={};
   try{ data=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){}
