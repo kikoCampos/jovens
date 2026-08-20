@@ -67,6 +67,11 @@ header.top{position:sticky;top:0;z-index:60;background:rgba(255,253,249,.94);bac
   border-bottom:2px solid var(--tinta)}
 .topin{max-width:var(--maxw);margin:0 auto;padding:0 22px;height:62px;display:flex;align-items:center;gap:12px;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:9px;font-family:var(--mao);font-size:1.5rem;font-weight:700;white-space:nowrap}
+.brand{text-decoration:none;color:inherit}
+.brand:hover .bvolta{color:var(--coral);border-color:var(--coral)}
+.bvolta{font-family:var(--rot);font-size:.66rem;font-weight:400;color:var(--suave);
+  border:1.5px solid var(--linha);border-radius:var(--rPil);padding:2px 8px;margin-left:4px;
+  white-space:nowrap;transition:.12s}
 .brand .dot{width:13px;height:13px;background:var(--coral);border-radius:60% 40% 55% 45%/45% 55% 45% 55%}
 .tools{display:flex;align-items:center;gap:8px}
 .btn{font-family:var(--rot);font-size:.82rem;font-weight:700;padding:7px 17px;cursor:pointer;white-space:nowrap;
@@ -416,8 +421,16 @@ input[type=checkbox]:checked::after{content:"";position:absolute;left:6px;top:1p
 
 /* ══ IMPRESSÃO — o caderno já é papel, então quase nada muda ══ */
 .soimpressao{display:none}
+.voltar-site{margin:34px 0 22px;padding:22px 24px;background:var(--papel2);
+  border:2.5px solid var(--tinta);border-radius:18px 235px 20px 225px/225px 18px 235px 20px}
+.vsrot{font-family:var(--rot);font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--coralF);font-weight:700}
+.voltar-site p{margin:8px 0 16px;font-size:.95rem;color:var(--suave);max-width:56ch}
+.vslinks{display:flex;flex-wrap:wrap;gap:10px}
+.colophon a,.cmeta a{color:var(--coralF);text-decoration:underline;text-underline-offset:2px}
 @media print{
   .soimpressao{display:block}
+  .voltar-site,.bvolta{display:none!important}
   .dossie{display:none}
   @page{size:A4;margin:12mm 11mm 15mm;
     @bottom-center{content:"© 2026 Kiko Campos · kikocampos.com · Pesquisa Jovens Talentos 2026";
@@ -469,7 +482,9 @@ input[type=checkbox]:checked::after{content:"";position:absolute;left:6px;top:1p
 
 <header class="top">
   <div class="topin">
-    <div class="brand"><span class="dot"></span> Workbook do Jovem Talento</div>
+    <a class="brand" href="https://kikocampos.com" target="_blank" rel="noopener"
+       title="Ir para kikocampos.com"><span class="dot"></span> Workbook do Jovem Talento
+       <span class="bvolta">kikocampos.com ↗</span></a>
     <div class="tools">
       <button class="btn" id="btoc">Sumário</button>
       <button class="btn" id="bclear">Limpar</button>
@@ -531,7 +546,7 @@ input[type=checkbox]:checked::after{content:"";position:absolute;left:6px;top:1p
           <div><b>Companheiro</b><span>Guia do Líder de Jovens Talentos · Playbook v2.0</span></div>
           <div><b>Base</b><span>4.991 respondentes · 18 itens · 7 momentos da jornada</span></div>
           <div><b>Edição</b><span>Versão 1.1 · Agosto de 2026</span></div>
-          <div><b>Autoria</b><span>Kiko Campos · kikocampos.com</span></div>
+          <div><b>Autoria</b><span>Kiko Campos · <a href="https://kikocampos.com" target="_blank" rel="noopener">kikocampos.com</a></span></div>
         </div>
         <div class="semjs"><b>Ative o JavaScript para usar o caderno etapa por etapa.</b> Sem ele você vê só esta abertura — mas pode baixar o PDF preenchível ou o de impressão nos botões abaixo, que funcionam do mesmo jeito.</div>
         <div class="cnote">Tudo o que você escrever fica salvo <b>só neste navegador, neste computador</b>. Nada é enviado para lugar nenhum. Use <b>Salvar em PDF</b> no topo para guardar ou imprimir o seu caderno preenchido.</div>
@@ -1495,10 +1510,20 @@ input[type=checkbox]:checked::after{content:"";position:absolute;left:6px;top:1p
           <a class="btn" href="solucoes/Workbook_do_Jovem_Talento_preenchivel.pdf" download>PDF preenchível</a>
           <a class="btn" href="solucoes/Workbook_do_Jovem_Talento.pdf" download>PDF para imprimir</a>
         </div>
+        <div class="voltar-site">
+          <span class="vsrot">Quando terminar aqui</span>
+          <p>Este caderno é uma peça da Pesquisa Jovens Talentos 2026. Se quiser ver o estudo
+          completo, os outros materiais ou o que mais eu escrevo sobre gente e liderança:</p>
+          <div class="vslinks">
+            <a class="btn p" href="https://kikocampos.com" target="_blank" rel="noopener">kikocampos.com ↗</a>
+            <a class="btn" href="https://jovens.kikocampos.com" target="_blank" rel="noopener">A pesquisa completa ↗</a>
+            <a class="btn" href="https://jovens.kikocampos.com/materiais.html" target="_blank" rel="noopener">Outros materiais ↗</a>
+          </div>
+        </div>
         <div class="colophon" id="direitos">
         <p><b>Workbook do Jovem Talento · versão 1.1 · agosto de 2026</b></p>
         <p>Construído a partir da Pesquisa Jovens Talentos 2026 — 4.991 estagiários, 18 itens em escala Likert, 7 momentos da jornada. Todos os números e todas as figuras vêm da base do estudo. Companheiro do Guia do Líder de Jovens Talentos (v2.0) e do Caderno de Templates Editáveis.</p>
-        <p class="direitos">© 2026 Kiko Campos · <b>kikocampos.com</b> · Todos os direitos reservados.<br>
+        <p class="direitos">© 2026 Kiko Campos · <b><a href="https://kikocampos.com" target="_blank" rel="noopener">kikocampos.com</a></b> · Todos os direitos reservados.<br>
         Uso livre por estagiários e por áreas de RH e People na condução dos próprios programas, mantida esta atribuição.
         Reprodução comercial, revenda ou remoção do crédito exigem autorização por escrito — kiko@kikocampos.com</p>
       </div><nav class="passonav">
