@@ -16,244 +16,50 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#0A1830; --bg2:#0E2140; --panel:#12294d; --panel2:#16305a;
-  --line:rgba(255,255,255,.10); --line2:rgba(255,255,255,.20);
-  --ink:#EAF1FB; --ink-soft:#AFC0DB; --ink-mute:#8A9DBE;
-  --orange:#FF4A12; --orange-cta:#CE420D; --amber:#F2B33D;
-  --good:#4FD1A1; --blue:#5AA9E6;
-  --display:"Fraunces",Georgia,serif;
-  --body:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,monospace;
-  --maxw:1180px; --radius:18px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;font-family:var(--body);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;
-  background:
-    radial-gradient(1150px 640px at 82% -12%, rgba(90,169,230,.15), transparent 60%),
-    radial-gradient(900px 520px at 8% 6%, rgba(255,74,18,.10), transparent 62%),
-    var(--bg);
-  background-attachment:fixed;
-}
-::selection{background:var(--orange);color:#fff}
-img{max-width:100%;display:block}
-a{color:inherit}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
-.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);font-weight:600;display:block}
-.eyebrow.blue{color:var(--blue)}
-.eyebrow.org{color:var(--orange)}
-h1{font-family:var(--display);font-weight:600;font-size:clamp(2.2rem,4.4vw,3.7rem);line-height:1.04;letter-spacing:-.02em;margin:22px 0 0}
-h2{font-family:var(--display);font-weight:600;font-size:clamp(1.85rem,3.2vw,2.75rem);line-height:1.07;letter-spacing:-.015em;margin:14px 0 0}
-h3{font-family:var(--display);font-weight:600;font-size:1.45rem;line-height:1.15;letter-spacing:-.01em;margin:0}
-h1 em,h2 em,h3 em{font-style:italic;color:var(--amber)}
-h1 .hot{font-style:italic;color:var(--orange)}
-p{margin:14px 0 0}
-.sec{padding:80px 0;border-top:1px solid var(--line)}
-section,header{scroll-margin-top:90px}
-.sechead{max-width:44em}
-.lede{color:var(--ink-soft);font-size:1.1rem}
-
-/* NAV */
-nav{position:sticky;top:0;z-index:40;backdrop-filter:blur(10px);background:rgba(10,24,48,.78);border-bottom:1px solid var(--line)}
-.navin{max-width:var(--maxw);margin:0 auto;padding:0 26px;display:flex;align-items:center;justify-content:space-between;height:70px;gap:20px}
-.brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:1.06rem;text-decoration:none;white-space:nowrap}
-.brand .dot{width:11px;height:11px;border-radius:50%;background:var(--orange);box-shadow:0 0 16px rgba(255,74,18,.7);flex:none}
-.navlinks{display:flex;align-items:center;gap:24px;font-size:.92rem;color:var(--ink-soft)}
-.navlinks a{color:var(--ink-soft);text-decoration:none}
-.navlinks a:hover{color:var(--ink)}
-.navlinks .btn{font-size:.88rem;padding:11px 20px}
-
-/* BUTTONS */
-.btn{padding:15px 26px;border-radius:100px;font-weight:600;font-size:1rem;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;border:none;font-family:var(--body);transition:transform .15s ease,background .15s ease}
-.btn:hover{transform:translateY(-2px)}
-.btn-p{background:var(--orange-cta);color:#fff;box-shadow:0 12px 34px -10px rgba(255,74,18,.6)}
-.btn-p:hover{background:var(--orange)}
-.btn-s{background:rgba(255,255,255,.05);color:var(--ink);border:1px solid var(--line2)}
-.btn-s:hover{background:rgba(255,255,255,.1)}
-
-/* HERO */
-.hero{padding:64px 0 72px}
-.herogrid{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:start}
-.hero .lede{font-size:1.16rem;max-width:34em;margin-top:22px}
-.proof{display:flex;flex-direction:column;gap:0;margin-top:34px;border-top:1px solid var(--line)}
-.proof div{display:flex;gap:18px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line)}
-.proof b{font-family:var(--display);font-size:1.6rem;font-weight:600;color:var(--amber);min-width:104px;line-height:1}
-.proof span{font-size:.95rem;color:var(--ink-soft)}
-
-/* FORM CARD */
-.formcard{background:linear-gradient(180deg,var(--panel2),rgba(18,41,77,.72));border:1px solid var(--line2);border-radius:var(--radius);padding:30px 28px;position:sticky;top:94px;box-shadow:0 30px 70px -30px rgba(0,0,0,.7)}
-.formcard.static{position:static;max-width:560px;margin:38px auto 0}
-.formcard h3{font-size:1.5rem}
-.formcard .sub{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--good);margin-top:10px}
-.picker{margin-top:22px;display:grid;gap:10px}
-.opt{display:flex;gap:13px;align-items:flex-start;padding:14px 15px;border:1px solid var(--line);border-radius:12px;cursor:pointer;background:rgba(255,255,255,.025);transition:border-color .15s,background .15s}
-.opt:hover{border-color:var(--line2);background:rgba(255,255,255,.05)}
-.opt input{appearance:none;width:19px;height:19px;min-width:19px;border:1.5px solid var(--ink-mute);border-radius:5px;margin:2px 0 0;cursor:pointer;position:relative;transition:all .15s}
-.opt input:checked{background:var(--orange-cta);border-color:var(--orange-cta)}
-.opt input:checked::after{content:"";position:absolute;left:5.5px;top:2px;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
-.opt input:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
-.opt:has(input:checked){border-color:var(--orange-cta);background:rgba(255,74,18,.08)}
-.opt .ot{display:block;font-weight:600;font-size:.96rem;line-height:1.3}
-.opt .od{display:block;font-size:.82rem;color:var(--ink-mute);margin-top:3px;line-height:1.4}
-.fields{display:grid;gap:11px;margin-top:18px}
-.fields input[type=text],.fields input[type=email]{width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:rgba(0,0,0,.22);color:var(--ink);font-family:var(--body);font-size:.98rem}
-.fields input::placeholder{color:var(--ink-mute)}
-.fields input:focus{outline:none;border-color:var(--blue);background:rgba(0,0,0,.34)}
-.formcard .btn{width:100%;margin-top:18px}
-.reassure{margin-top:16px;padding-top:16px;border-top:1px solid var(--line);font-size:.84rem;color:var(--ink-soft);line-height:1.5}
-.reassure b{color:var(--ink);font-weight:600}
-.err{color:#FF7A5C;font-size:.85rem;margin-top:12px;display:none}
-.err.on{display:block}
-.done{display:none;text-align:center;padding:18px 0}
-.done.on{display:block}
-.done .tick{width:52px;height:52px;border-radius:50%;background:rgba(79,209,161,.15);border:1px solid var(--good);margin:0 auto 18px;display:flex;align-items:center;justify-content:center;color:var(--good);font-size:1.5rem}
-.done h4{font-family:var(--display);font-size:1.4rem;font-weight:600;margin:0}
-.done p{color:var(--ink-soft);font-size:.94rem}
-.dl{display:grid;gap:10px;margin-top:22px;text-align:left}
-.dl a{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 18px;border:1px solid var(--line2);border-radius:12px;text-decoration:none;background:rgba(255,255,255,.045);font-weight:600;font-size:.95rem;transition:background .15s,border-color .15s}
-.dl a:hover{background:rgba(255,74,18,.12);border-color:var(--orange-cta)}
-.dl a span{font-family:var(--mono);font-size:.68rem;color:var(--ink-mute);letter-spacing:.08em;font-weight:400;white-space:nowrap}
-.dlnote{font-size:.84rem;color:var(--ink-mute);margin-top:20px;padding-top:16px;border-top:1px solid var(--line);text-align:left;line-height:1.5}
-.dlnote b{color:var(--ink-soft)}
-.sending{opacity:.6;pointer-events:none}
-
-/* CHART */
-.chartbox{border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px 22px;background:rgba(255,255,255,.025);margin-top:40px}
-.chartbox .ct{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute)}
-.chartbox svg{width:100%;height:auto;margin-top:18px;overflow:visible}
-.chartnote{font-size:.85rem;color:var(--ink-mute);margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
-
-/* NPS RAIL */
-.rail{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:34px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-.rail>div{padding:26px 24px;border-right:1px solid var(--line)}
-.rail>div:last-child{border-right:none}
-.rail .v{font-family:var(--display);font-size:2.6rem;font-weight:600;line-height:1}
-.rail .v.up{color:var(--good)}.rail .v.dn{color:var(--orange)}
-.rail .k{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);margin-top:10px}
-.rail>div.hot{background:rgba(255,74,18,.09)}
-
-/* GAPS */
-.gaps{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:40px}
-.gap{border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;background:linear-gradient(180deg,rgba(255,255,255,.045),transparent)}
-.gap .n{font-family:var(--display);font-size:3rem;font-weight:600;line-height:1;color:var(--orange);letter-spacing:-.02em}
-.gap h4{font-family:var(--display);font-size:1.25rem;font-weight:600;margin:14px 0 0;letter-spacing:-.01em}
-.gap p{font-size:.95rem;color:var(--ink-soft)}
-.equation{margin-top:26px;padding:24px 26px;border:1px solid var(--line2);border-radius:var(--radius);background:rgba(255,74,18,.06);font-family:var(--display);font-size:clamp(1.1rem,2vw,1.45rem);line-height:1.4;text-align:center}
-.equation em{font-style:italic;color:var(--orange)}
-
-/* PROOF / EDENRED */
-.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px}
-.pstat{border:1px solid var(--line);border-radius:14px;padding:24px 20px;background:rgba(79,209,161,.05)}
-.pstat .n{font-family:var(--display);font-size:2.1rem;font-weight:600;line-height:1;color:var(--good)}
-.pstat .l{font-size:.85rem;color:var(--ink-mute);margin-top:10px;line-height:1.4}
-
-/* MATERIALS */
-.mats{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:40px}
-.mat{background:linear-gradient(180deg,var(--panel),rgba(18,41,77,.4));border:1px solid var(--line);border-radius:var(--radius);padding:32px 30px 30px;display:flex;flex-direction:column;position:relative;overflow:hidden}
-.mat::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--blue),var(--good))}
-.mat.lead{border-color:rgba(255,74,18,.4)}
-.mat.lead::before{background:linear-gradient(90deg,var(--orange),var(--amber))}
-.mat .flag{position:absolute;top:18px;right:20px;font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);border:1px solid rgba(255,74,18,.45);border-radius:100px;padding:5px 12px}
-.mat .tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);font-weight:600}
-.mat.lead .tag{color:var(--amber)}
-.mat h3{margin-top:12px;font-size:1.6rem;max-width:88%}
-.mat .fmt{font-family:var(--mono);font-size:.74rem;color:var(--ink-mute);margin-top:10px;letter-spacing:.04em}
-.mat p{color:var(--ink-soft);font-size:.98rem}
-.mat ul{list-style:none;padding:0;margin:20px 0 0}
-.mat li{position:relative;padding-left:22px;margin-bottom:10px;font-size:.93rem;color:var(--ink-soft);line-height:1.45}
-.mat li::before{content:"";position:absolute;left:0;top:.6em;width:8px;height:1px;background:var(--blue)}
-.mat.lead li::before{background:var(--orange)}
-.mat .who{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:.85rem;color:var(--ink-mute)}
-.mat .who strong{color:var(--ink-soft);font-weight:600}
-.mat .add{margin-top:auto;padding-top:22px}
-.mat .add .btn{width:100%}
-
-/* RISK REVERSAL */
-.nope{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
-.nope>div{border:1px solid var(--line);border-radius:14px;padding:24px 22px;background:rgba(255,255,255,.02)}
-.nope .x{font-family:var(--mono);color:var(--good);font-size:1.1rem}
-.nope h5{font-family:var(--body);font-size:1rem;font-weight:600;margin:12px 0 0}
-.nope p{font-size:.89rem;color:var(--ink-mute);margin-top:7px}
-
-/* EXTRAS */
-.extras{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:38px}
-.extra{border:1px solid var(--line);border-radius:14px;padding:22px 20px;background:rgba(255,255,255,.02);display:flex;flex-direction:column;text-decoration:none}
-.extra:hover{border-color:var(--line2);background:rgba(255,255,255,.05)}
-.extra .t{font-family:var(--mono);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mute)}
-.extra h5{font-family:var(--display);font-size:1.1rem;font-weight:600;margin:10px 0 0;letter-spacing:-.01em}
-.extra p{font-size:.85rem;color:var(--ink-mute);margin-top:8px;flex:1}
-.extra .go{font-size:.84rem;color:var(--orange);font-weight:600;margin-top:16px}
-
-/* AUTHOR */
-.author{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
-.credlist{list-style:none;padding:0;margin:0;display:grid;gap:13px}
-.credlist li{display:flex;gap:16px;align-items:baseline;font-size:.93rem;color:var(--ink-soft);border-bottom:1px solid var(--line);padding-bottom:12px}
-.credlist b{font-family:var(--display);font-size:1.35rem;color:var(--ink);font-weight:600;min-width:86px}
-
-/* FOOTER */
-footer{border-top:1px solid var(--line);padding:48px 0 40px;background:rgba(0,0,0,.2)}
-.footgrid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:34px}
-.footgrid a{color:var(--ink-soft);text-decoration:none;font-size:.92rem;display:block;padding:5px 0;margin-bottom:4px}
-.footgrid a:hover{color:var(--ink)}
-.footgrid h6{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mute);margin:0 0 16px;font-weight:600}
-.ficha{font-family:var(--mono);font-size:.72rem;line-height:2;color:var(--ink-mute);letter-spacing:.05em;text-transform:uppercase;margin-top:36px;padding-top:24px;border-top:1px solid var(--line)}
-.copy{margin-top:26px;font-size:.82rem;color:var(--ink-mute)}
-
-@media(max-width:960px){
-  .herogrid,.gaps,.mats,.author,.footgrid{grid-template-columns:1fr}
-  .formcard{position:static;margin-top:8px}
-  .pgrid,.nope,.extras{grid-template-columns:1fr 1fr}
-  .navlinks a:not(.btn){display:none}
-  .sec{padding:58px 0}
-  .hero{padding:44px 0 52px}
-  .rail{grid-template-columns:1fr}
-  .rail>div{border-right:none;border-bottom:1px solid var(--line)}
-  .rail>div:last-child{border-bottom:none}
-}
-@media(max-width:560px){
-  .pgrid,.nope,.extras{grid-template-columns:1fr}
-  .proof b{min-width:88px;font-size:1.4rem}
-}
-@media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;700&family=Red+Hat+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/jovens.css">
 </head>
 <body>
-
-<nav>
-  <div class="navin">
-    <a class="brand" href="https://kikocampos.com"><span class="dot"></span>kiko campos</a>
-    <div class="navlinks">
-      <a href="#penhasco">O penhasco</a>
-      <a href="#prova">A prova</a>
-      <a href="#materiais">Os materiais</a>
-      <a href="https://jovens.kikocampos.com">Os resultados</a>
-      <a class="btn btn-p" href="#pedido">Receber os materiais</a>
-    </div>
+<aside class="rail" aria-hidden="true">
+  <span class="dot"></span>
+  <span class="rt"><b>Pesquisa Jovens Talentos</b> — 4.991 estagiários · 2026</span>
+  <span class="rt">jovens.kikocampos.com</span>
+</aside>
+<nav><div class="wrap navin">
+  <a class="brand" href="https://kikocampos.com/"><span class="dot"></span>kiko campos</a>
+  <button class="navtoggle" type="button" aria-label="Abrir menu" aria-expanded="false" onclick="var o=document.body.classList.toggle('navopen');this.setAttribute('aria-expanded',o)">☰</button>
+  <div class="links">
+    <a href="https://kikocampos.com/palestras.html">Palestras</a><a href="https://kikocampos.com/programas.html">Programas</a><a href="https://kikocampos.com/advisory.html">Advisory</a><div class="dd"><button type="button" aria-haspopup="true" onclick="this.parentNode.classList.toggle('open')">Conteúdo &amp; Pesquisa</button><div class="menu"><a href="https://mente.kikocampos.com">Mente no Trabalho<small>Série semanal e newsletter</small></a><a href="https://jovens.kikocampos.com">Pesquisa Jovens Talentos<small>4.991 estagiários ouvidos no Brasil</small></a><a href="https://kikocampos.com/seucodigo/index.html">Seu Código<small>Comece em 3 minutos</small></a><a href="https://kikocampos.com/manifesto.html">Manifesto</a></div></div><a href="https://kikocampos.com/cultura-como-sistema/index.html">Case</a><a href="https://kikocampos.com/livro.html">Livro</a><a href="https://kikocampos.com/sobre.html">Sobre</a>
+    <a class="btn btn-n" href="https://kikocampos.com/index.html#contato">Fale comigo&nbsp;↗</a>
   </div>
-</nav>
+</div></nav>
 
-<header class="hero" id="pedido">
-  <div class="wrap">
-    <div class="herogrid">
-      <div>
-        <span class="eyebrow">Pesquisa Jovens Talentos 2026 · Estudo independente</span>
-        <h1>Seu melhor estagiário decide ir embora no dia 60. Você descobre <span class="hot">quando ele pede para sair</span>.</h1>
-        <p class="lede">Ouvimos 4.991 estagiários em sete momentos da jornada, de 30 dias a 24 meses. A experiência não se degrada aos poucos: ela quebra num ponto específico, e o mesmo ponto aparece em todas as dimensões medidas. O relatório mostra por quê. O Guia do Líder mostra o que fazer na segunda-feira seguinte.</p>
-        <div class="proof">
-          <div><b>4.991</b><span>estagiários ouvidos em todo o Brasil</span></div>
-          <div><b>0 de 18</b><span>itens da experiência alcançam a faixa saudável</span></div>
-          <div><b>−2</b><span>NPS aos 60 dias — o fundo do vale</span></div>
-        </div>
+<div class="jbar" aria-label="Seções da página"><div class="wrap">
+  <span class="nm">Jovens Talentos<small>2026</small></span>
+  <div class="tabs">
+    <a href="#penhasco">O penhasco</a><a href="#prova">A prova</a><a href="#materiais">Os materiais</a><a href="https://jovens.kikocampos.com">Os resultados</a>
+  </div>
+  <a class="side" href="#pedido">Receber os materiais&nbsp;↗</a>
+</div></div>
+
+<main>
+<header class="mhero" id="pedido"><div class="wrap">
+  <div class="grid">
+    <div>
+      <span class="label">Pesquisa Jovens Talentos 2026 · Estudo independente</span>
+      <h1>Seu melhor estagiário decide ir embora no dia 60. Você descobre <span class="hot">quando ele pede para sair</span>.</h1>
+      <p class="lead">Ouvimos 4.991 estagiários em sete momentos da jornada, de 30 dias a 24 meses. A experiência não se degrada aos poucos: ela quebra num ponto específico, e o mesmo ponto aparece em todas as dimensões medidas. O relatório mostra por quê. O Guia do Líder mostra o que fazer na segunda-feira seguinte.</p>
+      <div class="proof">
+        <div><b>4.991</b><span>estagiários ouvidos em todo o Brasil</span></div>
+        <div><b>0 de 18</b><span>itens da experiência alcançam a faixa saudável</span></div>
+        <div><b>−2</b><span>NPS aos 60 dias — o fundo do vale</span></div>
       </div>
-
-      <div class="formcard" id="card-top">
+    </div>
+    <div class="formcard" id="card-top">
         <h3>Receba os materiais</h3>
         <div class="sub">Gratuito · download imediato</div>
-        <form class="jt-form" novalidate>
+        <form class="jt-form" novalidate data-live="1">
           <div class="picker">
             <label class="opt">
               <input type="checkbox" name="material" value="Documento-Base 2026" checked>
@@ -265,12 +71,12 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:rgba(0,0,
             </label>
           </div>
           <div class="fields">
-            <input type="text" name="nome" placeholder="Seu nome" autocomplete="name" required>
-            <input type="email" name="email" placeholder="E-mail para envio" autocomplete="email" required>
-            <input type="text" name="empresa" placeholder="Empresa ou instituição" autocomplete="organization" required>
+            <input type="text" name="nome" placeholder="Seu nome" autocomplete="name" required aria-label="Seu nome">
+            <input type="email" name="email" placeholder="E-mail para envio" autocomplete="email" required aria-label="E-mail para envio">
+            <input type="text" name="empresa" placeholder="Empresa ou instituição" autocomplete="organization" required aria-label="Empresa ou instituição">
           </div>
-          <button type="submit" class="btn btn-p">Receber os materiais →</button>
-          <div class="err" role="alert"></div>
+          <button type="submit" class="btn btn-p">Receber os materiais&nbsp;↗</button>
+          <div class="err" role="alert" data-msg></div>
           <div class="reassure"><b>O que não vai acontecer:</b> nenhuma sequência de e-mails, nenhuma ligação de vendas, nenhum cadastro. Você recebe o PDF e pronto.</div>
         </form>
         <div class="done" role="status">
@@ -281,273 +87,235 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:rgba(0,0,
           <p class="dlnote">Quer o recorte da <b>sua instituição</b>? Fazemos devolutivas individuais para bases com mais de 20 respondentes. Escreva para <b>kiko@kikocampos.com</b> — respondo pessoalmente.</p>
         </div>
       </div>
+  </div>
+</div></header>
+
+<section class="sec" id="penhasco"><div class="wrap">
+  <div class="sechead">
+    <div><span class="label">O achado que muda a rotina</span><h2>A quebra não é aleatória. Ela tem data.</h2></div>
+    <p>Aos 30 dias, o encantamento da chegada. Aos 60, o choque de realidade: a rotina se instala e a distância entre o que foi prometido no recrutamento e o que se vive na mesa fica exposta. É o ponto de maior risco de evasão silenciosa — a quebra empírica do contrato psicológico. E ele se repete nas quatro dimensões medidas: não é característica de uma área, é da jornada.</p>
+  </div>
+  <div class="rail3">
+    <div><div class="v">+10</div><div class="k">NPS aos 30 dias · a chegada</div></div>
+    <div class="hot"><div class="v">−2</div><div class="k">NPS aos 60 dias · o penhasco</div></div>
+    <div><div class="v">+8</div><div class="k">NPS aos 24 meses · a recuperação</div></div>
+  </div>
+  <div class="chart">
+    <div class="ct">Saldo Líquido · Síntese da experiência · M1 a M7</div>
+    <svg class="c-d" viewBox="0 0 1000 340" style="width:100%;height:auto;font-family:'Red Hat Text',system-ui,sans-serif" role="img" aria-label="Curva do Saldo Líquido da síntese da experiência ao longo dos sete momentos da jornada: 22,8 aos 30 dias, queda para 14,3 aos 60 dias, e recuperação progressiva até 24,3 aos 24 meses.">
+<rect x="152" y="52" width="143" height="228" fill="#F5EFE6"/>
+<line x1="68" y1="231.1" x2="952" y2="231.1" stroke="#DDE1E7"/>
+<text x="62" y="236.1" text-anchor="end" font-size="15" fill="#4A5568">+15</text>
+<line x1="68" y1="149.7" x2="952" y2="149.7" stroke="#DDE1E7"/>
+<text x="62" y="154.7" text-anchor="end" font-size="15" fill="#4A5568">+20</text>
+<line x1="68" y1="68.3" x2="952" y2="68.3" stroke="#DDE1E7"/>
+<text x="62" y="73.3" text-anchor="end" font-size="15" fill="#4A5568">+25</text>
+<path d="M80.0,104.1 L 223.3,242.5 L 366.7,213.2 L 510.0,105.7 L 653.3,97.6 L 796.7,100.9 L 940.0,79.7" fill="none" stroke="#0A1830" stroke-width="2.5" stroke-linejoin="round"/>
+<circle cx="80.0" cy="104.1" r="4.5" fill="#0A1830" stroke="#fff" stroke-width="2"/>
+<text x="80.0" y="309" text-anchor="middle" font-size="15" fill="#4A5568" font-weight="400">30d</text>
+<circle cx="223.3" cy="242.5" r="7" fill="#CE420D" stroke="#fff" stroke-width="2"/>
+<text x="223.3" y="309" text-anchor="middle" font-size="15" fill="#0A1830" font-weight="600">60d</text>
+<circle cx="366.7" cy="213.2" r="4.5" fill="#0A1830" stroke="#fff" stroke-width="2"/>
+<text x="366.7" y="309" text-anchor="middle" font-size="15" fill="#4A5568" font-weight="400">90d</text>
+<circle cx="510.0" cy="105.7" r="4.5" fill="#0A1830" stroke="#fff" stroke-width="2"/>
+<text x="510.0" y="309" text-anchor="middle" font-size="15" fill="#4A5568" font-weight="400">6m</text>
+<circle cx="653.3" cy="97.6" r="4.5" fill="#0A1830" stroke="#fff" stroke-width="2"/>
+<text x="653.3" y="309" text-anchor="middle" font-size="15" fill="#4A5568" font-weight="400">12m</text>
+<circle cx="796.7" cy="100.9" r="4.5" fill="#0A1830" stroke="#fff" stroke-width="2"/>
+<text x="796.7" y="309" text-anchor="middle" font-size="15" fill="#4A5568" font-weight="400">18m</text>
+<circle cx="940.0" cy="79.7" r="4.5" fill="#0A1830" stroke="#fff" stroke-width="2"/>
+<text x="940.0" y="309" text-anchor="middle" font-size="15" fill="#4A5568" font-weight="400">24m</text>
+<text x="223.3" y="38" text-anchor="middle" font-size="15" font-weight="600" fill="#CE420D">O penhasco</text>
+<text x="223.3" y="274.5" text-anchor="middle" font-size="20" font-weight="700" fill="#CE420D" style="font-family:'Red Hat Display',sans-serif">+14,3</text>
+<text x="80.0" y="90.1" text-anchor="middle" font-size="18" font-weight="500" fill="#0A1830" style="font-family:'Red Hat Display',sans-serif">+22,8</text>
+<text x="940.0" y="65.7" text-anchor="middle" font-size="18" font-weight="500" fill="#0A1830" style="font-family:'Red Hat Display',sans-serif">+24,3</text>
+</svg>
+<svg class="c-m" viewBox="0 0 346 290" style="width:100%;height:auto;font-family:'Red Hat Text',system-ui,sans-serif" role="img" aria-label="Curva do Saldo Líquido da síntese da experiência ao longo dos sete momentos da jornada: 22,8 aos 30 dias, queda para 14,3 aos 60 dias, e recuperação progressiva até 24,3 aos 24 meses.">
+<rect x="68" y="46" width="47" height="186" fill="#F5EFE6"/>
+<line x1="32" y1="192.1" x2="338" y2="192.1" stroke="#DDE1E7"/>
+<text x="26" y="197.1" text-anchor="end" font-size="14" fill="#4A5568">+15</text>
+<line x1="32" y1="125.7" x2="338" y2="125.7" stroke="#DDE1E7"/>
+<text x="26" y="130.7" text-anchor="end" font-size="14" fill="#4A5568">+20</text>
+<line x1="32" y1="59.3" x2="338" y2="59.3" stroke="#DDE1E7"/>
+<text x="26" y="64.3" text-anchor="end" font-size="14" fill="#4A5568">+25</text>
+<path d="M44.0,88.5 L 91.0,201.4 L 138.0,177.5 L 185.0,89.8 L 232.0,83.2 L 279.0,85.9 L 326.0,68.6" fill="none" stroke="#0A1830" stroke-width="2.5" stroke-linejoin="round"/>
+<circle cx="44.0" cy="88.5" r="4.5" fill="#0A1830" stroke="#fff" stroke-width="2"/>
+<text x="44.0" y="260" text-anchor="middle" font-size="14" fill="#4A5568" font-weight="400">30d</text>
+<circle cx="91.0" cy="201.4" r="7" fill="#CE420D" stroke="#fff" stroke-width="2"/>
+<text x="91.0" y="260" text-anchor="middle" font-size="14" fill="#0A1830" font-weight="600">60d</text>
+<circle cx="138.0" cy="177.5" r="4.5" fill="#0A1830" stroke="#fff" stroke-width="2"/>
+<text x="138.0" y="260" text-anchor="middle" font-size="14" fill="#4A5568" font-weight="400">90d</text>
+<circle cx="185.0" cy="89.8" r="4.5" fill="#0A1830" stroke="#fff" stroke-width="2"/>
+<text x="185.0" y="260" text-anchor="middle" font-size="14" fill="#4A5568" font-weight="400">6m</text>
+<circle cx="232.0" cy="83.2" r="4.5" fill="#0A1830" stroke="#fff" stroke-width="2"/>
+<text x="232.0" y="260" text-anchor="middle" font-size="14" fill="#4A5568" font-weight="400">12m</text>
+<circle cx="279.0" cy="85.9" r="4.5" fill="#0A1830" stroke="#fff" stroke-width="2"/>
+<text x="279.0" y="260" text-anchor="middle" font-size="14" fill="#4A5568" font-weight="400">18m</text>
+<circle cx="326.0" cy="68.6" r="4.5" fill="#0A1830" stroke="#fff" stroke-width="2"/>
+<text x="326.0" y="260" text-anchor="middle" font-size="14" fill="#4A5568" font-weight="400">24m</text>
+<text x="91.0" y="32" text-anchor="middle" font-size="14" font-weight="600" fill="#CE420D">O penhasco</text>
+<text x="91.0" y="230.4" text-anchor="middle" font-size="17" font-weight="700" fill="#CE420D" style="font-family:'Red Hat Display',sans-serif">+14,3</text>
+<text x="44.0" y="74.5" text-anchor="middle" font-size="15" font-weight="500" fill="#0A1830" style="font-family:'Red Hat Display',sans-serif">+22,8</text>
+<text x="326.0" y="54.6" text-anchor="end" font-size="15" font-weight="500" fill="#0A1830" style="font-family:'Red Hat Display',sans-serif">+24,3</text>
+</svg>
+    <p class="chartnote">O padrão não é artefato do NPS. O Saldo Líquido — a métrica de intensidade — mergulha aos 60 dias e leva quase um ano para voltar ao patamar de chegada. As quatro bases fazem o mesmo movimento, juntas.</p>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="sechead">
+    <div><span class="label">E quando ele fica</span><h2>Dois motivos explicam por que ele não se compromete.</h2></div>
+    <p>Nenhum dos 18 itens do estudo alcança a faixa saudável — todos ficam na zona de atenção. Mas dois descem à borda inferior, pelas duas métricas ao mesmo tempo. São exatamente os dois pontos em que a Geração Z é mais exigente e em que o estágio tem mais a ganhar como funil de talento.</p>
+  </div>
+  <div class="gaps2" style="margin-top:0">
+    <div>
+      <div class="big">63,3%</div>
+      <p class="q">“Recebo feedbacks que me ajudam a melhorar”</p>
+      <p>O canal de ajuda está aberto, mas o retorno proativo não flui. O feedback ainda depende da iniciativa de cada liderança — é evento esporádico, não ritual previsível. Saldo Líquido a 2,5 pontos do corte crítico.</p>
+    </div>
+    <div>
+      <div class="big">62,4%</div>
+      <p class="q">“Vejo possibilidades reais de continuidade ou crescimento”</p>
+      <p>O item mais fraco do estudo inteiro. 1 em cada 5 não vê futuro — embora 40 a 60% sejam de fato efetivados. O problema não é a ausência de futuro: é a falta de comunicação dele. Correção barata: é processo, não orçamento.</p>
     </div>
   </div>
-</header>
+  <div class="equation">Experiência boa &nbsp;+&nbsp; futuro invisível &nbsp;=&nbsp; <em>talento que vai embora satisfeito</em></div>
+</div></section>
 
-<section class="sec" id="penhasco">
-  <div class="wrap">
-    <div class="sechead">
-      <span class="eyebrow org">O achado que muda a rotina</span>
-      <h2>A quebra não é aleatória. Ela <em>tem data</em>.</h2>
-      <p class="lede">Aos 30 dias, o encantamento da chegada. Aos 60, o choque de realidade: a rotina se instala e a distância entre o que foi prometido no recrutamento e o que se vive na mesa fica exposta. É o ponto de maior risco de evasão silenciosa — a quebra empírica do contrato psicológico. E ele se repete nas quatro dimensões medidas: não é característica de uma área, é da jornada.</p>
-    </div>
-
-    <div class="rail">
-      <div><div class="v up">+10</div><div class="k">NPS aos 30 dias · a chegada</div></div>
-      <div class="hot"><div class="v dn">−2</div><div class="k">NPS aos 60 dias · o penhasco</div></div>
-      <div><div class="v up">+8</div><div class="k">NPS aos 24 meses · a recuperação</div></div>
-    </div>
-
-    <div class="chartbox">
-      <div class="ct">Saldo Líquido · Síntese da experiência · M1 a M7</div>
-      <svg viewBox="0 0 720 260" role="img" aria-label="Curva do Saldo Líquido da síntese da experiência ao longo dos sete momentos da jornada: 22,8 aos 30 dias, queda para 14,3 aos 60 dias, e recuperação progressiva até 24,3 aos 24 meses.">
-        <g stroke="rgba(255,255,255,.10)" stroke-width="1">
-          <line x1="46" y1="56.7" x2="700" y2="56.7"/>
-          <line x1="46" y1="111.1" x2="700" y2="111.1"/>
-          <line x1="46" y1="165.6" x2="700" y2="165.6"/>
-        </g>
-        <g fill="#8A9DBE" font-family="IBM Plex Mono, monospace" font-size="10" text-anchor="end">
-          <text x="36" y="60">+25</text>
-          <text x="36" y="114">+20</text>
-          <text x="36" y="169">+15</text>
-        </g>
-        <path d="M46,80.6 L155,173.2 L264,153.6 L373,81.7 L482,76.3 L591,78.4 L700,64.3"
-              fill="none" stroke="#5AA9E6" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-        <line x1="155" y1="158" x2="155" y2="112" stroke="#FF4A12" stroke-width="1" stroke-dasharray="3 3"/>
-        <circle cx="155" cy="173.2" r="7" fill="#FF4A12"/>
-        <circle cx="155" cy="173.2" r="13" fill="none" stroke="#FF4A12" stroke-width="1" opacity=".45"/>
-        <g fill="#EAF1FB">
-          <circle cx="46" cy="80.6" r="4"/><circle cx="264" cy="153.6" r="4"/><circle cx="373" cy="81.7" r="4"/>
-          <circle cx="482" cy="76.3" r="4"/><circle cx="591" cy="78.4" r="4"/><circle cx="700" cy="64.3" r="4"/>
-        </g>
-        <g font-family="IBM Plex Mono, monospace" font-size="10" fill="#AFC0DB" text-anchor="middle">
-          <text x="46" y="238">30d</text><text x="155" y="238">60d</text><text x="264" y="238">90d</text>
-          <text x="373" y="238">6m</text><text x="482" y="238">12m</text><text x="591" y="238">18m</text><text x="700" y="238">24m</text>
-        </g>
-        <text x="155" y="88" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#FF4A12" text-anchor="middle" font-weight="600" letter-spacing="1.5">O PENHASCO</text>
-        <text x="155" y="70" font-family="Fraunces, Georgia, serif" font-size="17" fill="#FF4A12" text-anchor="middle" font-weight="600">+14,3</text>
-        <text x="54" y="70" font-family="Fraunces, Georgia, serif" font-size="13" fill="#EAF1FB" text-anchor="start">+22,8</text>
-        <text x="700" y="50" font-family="Fraunces, Georgia, serif" font-size="13" fill="#EAF1FB" text-anchor="end">+24,3</text>
-      </svg>
-      <div class="chartnote">O padrão não é artefato do NPS. O Saldo Líquido — a métrica de intensidade — mergulha aos 60 dias e leva quase um ano para voltar ao patamar de chegada. As quatro bases fazem o mesmo movimento, juntas.</div>
-    </div>
+<section class="sec" id="prova"><div class="wrap">
+  <div class="sechead">
+    <div><span class="label">A prova</span><h2>O platô não é destino. É escolha de gestão.</h2></div>
+    <p>Enquanto a média do país trava na zona de atenção, algumas organizações já entregam experiência de excelência com o mesmo orçamento e as mesmas leis. O caso mais sólido da onda 2026 é a <strong>Edenred</strong> — 1º lugar no Prêmio Melhor Experiência do Estagiário, com a maior base privada do estudo. Não é exceção estatística: é o que acontece quando a jornada é gerida como processo.</p>
   </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="sechead">
-      <span class="eyebrow">E quando ele fica</span>
-      <h2>Dois motivos explicam por que ele não <em>se compromete</em>.</h2>
-      <p class="lede">Nenhum dos 18 itens do estudo alcança a faixa saudável — todos ficam na zona de atenção. Mas dois descem à borda inferior, pelas duas métricas ao mesmo tempo. São exatamente os dois pontos em que a Geração Z é mais exigente e em que o estágio tem mais a ganhar como funil de talento.</p>
-    </div>
-
-    <div class="gaps">
-      <div class="gap">
-        <div class="n">63,3%</div>
-        <h4>“Recebo feedbacks que me ajudam a melhorar”</h4>
-        <p>O canal de ajuda está aberto, mas o retorno proativo não flui. O feedback ainda depende da iniciativa de cada liderança — é evento esporádico, não ritual previsível. Saldo Líquido a 2,5 pontos do corte crítico.</p>
-      </div>
-      <div class="gap">
-        <div class="n">62,4%</div>
-        <h4>“Vejo possibilidades reais de continuidade ou crescimento”</h4>
-        <p>O item mais fraco do estudo inteiro. 1 em cada 5 não vê futuro — embora 40 a 60% sejam de fato efetivados. O problema não é a ausência de futuro: é a falta de comunicação dele. Correção barata: é processo, não orçamento.</p>
-      </div>
-    </div>
-
-    <div class="equation">Experiência boa &nbsp;+&nbsp; futuro invisível &nbsp;=&nbsp; <em>talento que vai embora satisfeito</em></div>
+  <div class="ruled c4">
+    <div><div class="big">+86,8</div><p style="margin-top:12px">Saldo Líquido · contra +26,2 na média das privadas</p></div>
+    <div><div class="big">96,8%</div><p style="margin-top:12px">Favorabilidade média nos 18 itens</p></div>
+    <div><div class="big">+96,7</div><p style="margin-top:12px">NPS · apenas 1,1% de insatisfeitos</p></div>
+    <div><div class="big">61</div><p style="margin-top:12px">Respondentes · base robusta para leitura individual</p></div>
   </div>
-</section>
+</div></section>
 
-<section class="sec" id="prova">
-  <div class="wrap">
-    <div class="sechead">
-      <span class="eyebrow blue">A prova</span>
-      <h2>O platô não é destino. É <em>escolha de gestão</em>.</h2>
-      <p class="lede">Enquanto a média do país trava na zona de atenção, algumas organizações já entregam experiência de excelência com o mesmo orçamento e as mesmas leis. O caso mais sólido da onda 2026 é a <strong>Edenred</strong> — 1º lugar no Prêmio Melhor Experiência do Estagiário, com a maior base privada do estudo. Não é exceção estatística: é o que acontece quando a jornada é gerida como processo.</p>
-    </div>
-    <div class="pgrid">
-      <div class="pstat"><div class="n">+86,8</div><div class="l">Saldo Líquido · contra +26,2 na média das privadas</div></div>
-      <div class="pstat"><div class="n">96,8%</div><div class="l">Favorabilidade média nos 18 itens</div></div>
-      <div class="pstat"><div class="n">+96,7</div><div class="l">NPS · apenas 1,1% de insatisfeitos</div></div>
-      <div class="pstat"><div class="n">61</div><div class="l">Respondentes · base robusta para leitura individual</div></div>
-    </div>
+<section class="sec" id="materiais"><div class="wrap">
+  <div class="sechead">
+    <div><span class="label">O que você recebe</span><h2>Um diagnostica. O outro opera.</h2></div>
+    <p>Os dois materiais foram desenhados para funcionar juntos — e você pode pedir os dois de uma vez, no mesmo formulário.</p>
   </div>
-</section>
-
-<section class="sec" id="materiais">
-  <div class="wrap">
-    <div class="sechead">
-      <span class="eyebrow">O que você recebe</span>
-      <h2>Um diagnostica. O outro <em>opera</em>.</h2>
-      <p class="lede">Os dois materiais foram desenhados para funcionar juntos — e você pode pedir os dois de uma vez, no mesmo formulário.</p>
-    </div>
-
-    <div class="mats">
-      <article class="mat">
-        <span class="tag">Diagnóstico</span>
-        <h3>Relatório Completo — Documento-Base 2026</h3>
-        <div class="fmt">PDF · 44 páginas · para RH, pesquisa e comitês</div>
-        <p>O estudo inteiro, do desenho amostral à conclusão. Cada uma das 18 perguntas lida pelas duas lentes — favorabilidade e Saldo Líquido — com a régua explícita e as fontes que ancoram cada corte.</p>
-        <ul>
-          <li>A tese e a construção do estudo: propósito, amostra e instrumento</li>
-          <li>O modelo das quatro bases e o que sustenta cada uma</li>
-          <li>18 fichas analíticas, pergunta a pergunta</li>
-          <li>A jornada no tempo — M1 a M7 e o vale nas quatro bases</li>
-          <li>Perfil geracional, futuro do trabalho e leitura sistêmica para o Brasil</li>
-        </ul>
-        <div class="who"><strong>Use quando</strong> precisar de evidência para sustentar uma decisão — ou um orçamento — diante da diretoria.</div>
-        <div class="add"><button class="btn btn-s" data-add="Documento-Base 2026">Adicionar ao meu pedido ↑</button></div>
-      </article>
-
-      <article class="mat lead">
-        <span class="flag">O mais pedido</span>
-        <span class="tag">Operação</span>
-        <h3>Guia do Líder de Jovens Talentos</h3>
-        <div class="fmt">PDF ilustrado · 32 páginas · playbook v2.0</div>
-        <p>O que o gestor faz com o dado. Manual de campo para conduzir a jornada da chegada ao fechamento do contrato — organizado para ler por partes, começando pelo momento em que o seu jovem está.</p>
-        <ul>
-          <li>A rotina mínima do líder, os 4 fundamentos e o autodiagnóstico do gestor</li>
-          <li>A jornada dia a dia: chegada, dia 15, dia 30, o penhasco dos 45–60 e o dia 90</li>
-          <li>Conversas prontas: check-in, as 3 de carreira, queda no pulso, efetivação e encerramento</li>
-          <li>Matriz de sinais de alerta, plano de ação por nota do pulso e calibragem com o RH</li>
-          <li>Inclusão e equidade: distribuição justa de oportunidades</li>
-          <li>6 anexos preenchíveis (A–F) e o resumo do líder em uma página</li>
-        </ul>
-        <div class="who"><strong>Use quando</strong> a liderança já entendeu o problema e precisa de ferramenta, não de mais um diagnóstico.</div>
-        <div class="add"><button class="btn btn-p" data-add="Guia do Líder de Jovens Talentos">Adicionar ao meu pedido ↑</button></div>
-      </article>
-    </div>
-
-    <div class="nope">
-      <div><div class="x">✕</div><h5>Sem sequência de e-mails</h5><p>Você não entra em nenhuma automação. O envio é o envio.</p></div>
-      <div><div class="x">✕</div><h5>Sem ligação de vendas</h5><p>Ninguém liga. Se quiser conversar, você responde o e-mail.</p></div>
-      <div><div class="x">✕</div><h5>Sem restrição de uso</h5><p>Compartilhe internamente, cite, use nos seus rituais. É para circular.</p></div>
-    </div>
+  <div class="mats">
+    <article class="mat">
+      <span class="tagl"><span>Diagnóstico</span></span>
+      <h3>Relatório Completo — Documento-Base 2026</h3>
+      <div class="fmt">PDF · 44 páginas · para RH, pesquisa e comitês</div>
+      <p>O estudo inteiro, do desenho amostral à conclusão. Cada uma das 18 perguntas lida pelas duas lentes — favorabilidade e Saldo Líquido — com a régua explícita e as fontes que ancoram cada corte.</p>
+      <ul>
+        <li>A tese e a construção do estudo: propósito, amostra e instrumento</li>
+        <li>O modelo das quatro bases e o que sustenta cada uma</li>
+        <li>18 fichas analíticas, pergunta a pergunta</li>
+        <li>A jornada no tempo — M1 a M7 e o vale nas quatro bases</li>
+        <li>Perfil geracional, futuro do trabalho e leitura sistêmica para o Brasil</li>
+      </ul>
+      <div class="who"><strong>Use quando</strong> precisar de evidência para sustentar uma decisão — ou um orçamento — diante da diretoria.</div>
+      <div class="add"><button class="btn btn-o" data-add="Documento-Base 2026">Adicionar ao meu pedido ↑</button></div>
+    </article>
+    <article class="mat featured">
+      <span class="tagl"><span>Operação</span><span class="flag">O mais pedido</span></span>
+      <h3>Guia do Líder de Jovens Talentos</h3>
+      <div class="fmt">PDF ilustrado · 32 páginas · playbook v2.0</div>
+      <p>O que o gestor faz com o dado. Manual de campo para conduzir a jornada da chegada ao fechamento do contrato — organizado para ler por partes, começando pelo momento em que o seu jovem está.</p>
+      <ul>
+        <li>A rotina mínima do líder, os 4 fundamentos e o autodiagnóstico do gestor</li>
+        <li>A jornada dia a dia: chegada, dia 15, dia 30, o penhasco dos 45–60 e o dia 90</li>
+        <li>Conversas prontas: check-in, as 3 de carreira, queda no pulso, efetivação e encerramento</li>
+        <li>Matriz de sinais de alerta, plano de ação por nota do pulso e calibragem com o RH</li>
+        <li>Inclusão e equidade: distribuição justa de oportunidades</li>
+        <li>6 anexos preenchíveis (A–F) e o resumo do líder em uma página</li>
+      </ul>
+      <div class="who"><strong>Use quando</strong> a liderança já entendeu o problema e precisa de ferramenta, não de mais um diagnóstico.</div>
+      <div class="add"><button class="btn btn-o" data-add="Guia do Líder de Jovens Talentos">Adicionar ao meu pedido ↑</button></div>
+    </article>
   </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="sechead">
-      <span class="eyebrow">Materiais complementares</span>
-      <h2>O resto do sistema, se precisar.</h2>
-    </div>
-    <div class="extras">
-      <a class="extra" href="https://jovens.kikocampos.com/solucoes/Resumo_Executivo_JT2026.pdf" target="_blank" rel="noopener">
-        <span class="t">Decisão</span>
-        <h5>Resumo Executivo</h5>
-        <p>A jornada em uma página: a tese, os três achados e as três frentes com indicador, meta e dono.</p>
-        <span class="go">Baixar agora →</span>
-      </a>
-      <a class="extra" href="https://docs.google.com/forms/d/e/1FAIpQLSfpSC-jEnh8XxHplyyTdsv8-D0grBUS-hpfKiO3R7kvJJO3zw/viewform?usp=pp_url&amp;entry.1387078464=Caderno%20de%20Templates%20Edit%C3%A1veis" target="_blank" rel="noopener">
-        <span class="t">Ferramentas</span>
-        <h5>Caderno de Templates</h5>
-        <p>Os 8 instrumentos do Guia prontos para copiar e preencher — uma cópia por estagiário.</p>
-        <span class="go">Solicitar →</span>
-      </a>
-      <a class="extra" href="https://docs.google.com/forms/d/e/1FAIpQLSfpSC-jEnh8XxHplyyTdsv8-D0grBUS-hpfKiO3R7kvJJO3zw/viewform?usp=pp_url&amp;entry.1387078464=Curadoria%20de%20Refer%C3%AAncias" target="_blank" rel="noopener">
-        <span class="t">Repertório</span>
-        <h5>Curadoria de Referências</h5>
-        <p>Autores e publicações nos três eixos frágeis — de McKinsey e Gallup a frameworks prontos.</p>
-        <span class="go">Solicitar →</span>
-      </a>
-      <a class="extra" href="https://jovens.kikocampos.com/solucoes/Press_Kit_JT2026.pdf" target="_blank" rel="noopener">
-        <span class="t">Comunicação</span>
-        <h5>Press Kit e Release</h5>
-        <p>Os destaques preparados para pauta: a tese, os números-âncora e o caso de excelência.</p>
-        <span class="go">Baixar agora →</span>
-      </a>
-    </div>
+  <div class="ruled c3 nope">
+    <div><div class="x">✕</div><h3>Sem sequência de e-mails</h3><p>Você não entra em nenhuma automação. O envio é o envio.</p></div>
+    <div><div class="x">✕</div><h3>Sem ligação de vendas</h3><p>Ninguém liga. Se quiser conversar, você responde o e-mail.</p></div>
+    <div><div class="x">✕</div><h3>Sem restrição de uso</h3><p>Compartilhe internamente, cite, use nos seus rituais. É para circular.</p></div>
   </div>
-</section>
+</div></section>
 
-<section class="sec">
-  <div class="wrap">
-    <div class="author">
-      <div>
-        <span class="eyebrow">Quem assina</span>
-        <h2>Não é palpite. É <em>pesquisa</em> com método.</h2>
-        <p class="lede">Kiko Campos é conselheiro, pesquisador e autor. Vinte anos ao lado de CEOs e comitês em 11 países, transformando cultura declarada em comportamento medido. A Pesquisa Jovens Talentos é um estudo independente, conduzido em parceria de alcance com a Academia do Universitário.</p>
-        <p style="margin-top:26px"><a class="btn btn-s" href="https://kikocampos.com/sobre.html">Sobre o autor →</a></p>
-      </div>
+<section class="sec"><div class="wrap">
+  <div class="sechead">
+    <div><span class="label">Materiais complementares</span><h2>O resto do sistema, se precisar.</h2></div>
+  </div>
+  <div class="ruled c4 eco-g extras">
+    <a href="https://jovens.kikocampos.com/solucoes/Resumo_Executivo_JT2026.pdf" target="_blank" rel="noopener"><span class="dom">Decisão</span><h3>Resumo Executivo</h3><p>A jornada em uma página: a tese, os três achados e as três frentes com indicador, meta e dono.</p><span class="go">Baixar agora&nbsp;↗</span></a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpSC-jEnh8XxHplyyTdsv8-D0grBUS-hpfKiO3R7kvJJO3zw/viewform?usp=pp_url&amp;entry.1387078464=Caderno%20de%20Templates%20Edit%C3%A1veis" target="_blank" rel="noopener"><span class="dom">Ferramentas</span><h3>Caderno de Templates</h3><p>Os 8 instrumentos do Guia prontos para copiar e preencher — uma cópia por estagiário.</p><span class="go">Solicitar&nbsp;↗</span></a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpSC-jEnh8XxHplyyTdsv8-D0grBUS-hpfKiO3R7kvJJO3zw/viewform?usp=pp_url&amp;entry.1387078464=Curadoria%20de%20Refer%C3%AAncias" target="_blank" rel="noopener"><span class="dom">Repertório</span><h3>Curadoria de Referências</h3><p>Autores e publicações nos três eixos frágeis — de McKinsey e Gallup a frameworks prontos.</p><span class="go">Solicitar&nbsp;↗</span></a>
+    <a href="https://jovens.kikocampos.com/solucoes/Press_Kit_JT2026.pdf" target="_blank" rel="noopener"><span class="dom">Comunicação</span><h3>Press Kit e Release</h3><p>Os destaques preparados para pauta: a tese, os números-âncora e o caso de excelência.</p><span class="go">Baixar agora&nbsp;↗</span></a>
+  </div>
+</div></section>
+
+<section class="mclose"><div class="wrap">
+  <div class="grid">
+    <div>
+      <span class="label">Quem assina</span>
+      <h2>Não é palpite. É <em>pesquisa</em> com método.</h2>
+      <p class="lead">Kiko Campos é conselheiro, pesquisador e autor. Mais de vinte anos ao lado de CEOs e comitês em 12 países, transformando cultura declarada em comportamento medido. A Pesquisa Jovens Talentos é um estudo independente, conduzido em parceria de alcance com a Academia do Universitário.</p>
+      <a class="lnk" href="https://kikocampos.com/sobre.html">Sobre o autor&nbsp;↗</a>
       <ul class="credlist">
         <li><b>4.991</b><span>estagiários ouvidos em todo o Brasil</span></li>
         <li><b>39 mil</b><span>inscritos na newsletter Mente no Trabalho</span></li>
-        <li><b>20 anos</b><span>transformando cultura em resultado, em 11 países</span></li>
+        <li><b>+20 anos</b><span>transformando cultura em resultado, em 12 países</span></li>
         <li><b>16</b><span>operações e marcas com cultura construída lado a lado</span></li>
       </ul>
     </div>
-
-    <div class="formcard static" id="card-bottom">
-      <h3>Receba os materiais</h3>
-      <div class="sub">Gratuito · download imediato</div>
-      <form class="jt-form" novalidate>
-        <div class="picker">
-          <label class="opt">
-            <input type="checkbox" name="material" value="Documento-Base 2026" checked>
-            <span><span class="ot">Relatório Completo</span><span class="od">O estudo em 44 páginas</span></span>
-          </label>
-          <label class="opt">
-            <input type="checkbox" name="material" value="Guia do Líder de Jovens Talentos" checked>
-            <span><span class="ot">Guia do Líder</span><span class="od">Playbook ilustrado · 32 páginas</span></span>
-          </label>
+    <div class="formcard dark" id="card-bottom">
+        <h3>Receba os materiais</h3>
+        <div class="sub">Gratuito · download imediato</div>
+        <form class="jt-form" novalidate data-live="1">
+          <div class="picker">
+            <label class="opt">
+              <input type="checkbox" name="material" value="Documento-Base 2026" checked>
+              <span><span class="ot">Relatório Completo</span><span class="od">O estudo em 44 páginas</span></span>
+            </label>
+            <label class="opt">
+              <input type="checkbox" name="material" value="Guia do Líder de Jovens Talentos" checked>
+              <span><span class="ot">Guia do Líder</span><span class="od">Playbook ilustrado · 32 páginas</span></span>
+            </label>
+          </div>
+          <div class="fields">
+            <input type="text" name="nome" placeholder="Seu nome" autocomplete="name" required aria-label="Seu nome">
+            <input type="email" name="email" placeholder="E-mail para envio" autocomplete="email" required aria-label="E-mail para envio">
+            <input type="text" name="empresa" placeholder="Empresa ou instituição" autocomplete="organization" required aria-label="Empresa ou instituição">
+          </div>
+          <button type="submit" class="btn btn-p">Receber os materiais&nbsp;↗</button>
+          <div class="err" role="alert" data-msg></div>
+          <div class="reassure">Precisa do recorte da sua instituição? Devolutivas individuais para bases com mais de 20 respondentes — escreva para <b>kiko@kikocampos.com</b>.</div>
+        </form>
+        <div class="done" role="status">
+          <div class="tick">✓</div>
+          <h4>Prontos. Pode baixar agora.</h4>
+          <p>São seus — compartilhe internamente à vontade.</p>
+          <div class="dl"></div>
+          <p class="dlnote">Quer o recorte da <b>sua instituição</b>? Fazemos devolutivas individuais para bases com mais de 20 respondentes. Escreva para <b>kiko@kikocampos.com</b> — respondo pessoalmente.</p>
         </div>
-        <div class="fields">
-          <input type="text" name="nome" placeholder="Seu nome" autocomplete="name" required>
-          <input type="email" name="email" placeholder="E-mail para envio" autocomplete="email" required>
-          <input type="text" name="empresa" placeholder="Empresa ou instituição" autocomplete="organization" required>
-        </div>
-        <button type="submit" class="btn btn-p">Receber os materiais →</button>
-        <div class="err" role="alert"></div>
-        <div class="reassure">Precisa do recorte da sua instituição? Devolutivas individuais para bases com mais de 20 respondentes — escreva para <b>kiko@kikocampos.com</b>.</div>
-      </form>
-      <div class="done" role="status">
-        <div class="tick">✓</div>
-        <h4>Prontos. Pode baixar agora.</h4>
-        <p>São seus — compartilhe internamente à vontade.</p>
-        <div class="dl"></div>
-        <p class="dlnote">Quer o recorte da <b>sua instituição</b>? Fazemos devolutivas individuais para bases com mais de 20 respondentes. Escreva para <b>kiko@kikocampos.com</b> — respondo pessoalmente.</p>
       </div>
-    </div>
   </div>
-</section>
+</div></section>
+</main>
 
-<footer>
-  <div class="wrap">
-    <div class="footgrid">
-      <div>
-        <a class="brand" href="https://kikocampos.com"><span class="dot"></span>kiko campos</a>
-        <p style="color:var(--ink-mute);font-size:.9rem;max-width:26em;margin-top:12px">Liderança executiva e transformação cultural. Cultura como sistema vivo, integrado e mensurável.</p>
-      </div>
-      <div>
-        <h6>Pesquisa</h6>
-        <a href="https://jovens.kikocampos.com">Resultados completos</a>
-        <a href="#penhasco">O penhasco dos 60 dias</a>
-        <a href="#materiais">Os dois materiais</a>
-        <a href="https://jovens.kikocampos.com/workbook.html">Workbook do Jovem Talento</a>
-        <a href="https://jovens.kikocampos.com/solucoes/Resumo_Executivo_JT2026.pdf">Resumo Executivo</a>
-      </div>
-      <div>
-        <h6>Ecossistema</h6>
-        <a href="https://kikocampos.com/palestras.html">Palestras &amp; Keynotes</a>
-        <a href="https://kikocampos.com/programas.html">Programas &amp; Raio-X de Cultura</a>
-        <a href="https://mente.kikocampos.com">Mente no Trabalho</a>
-        <a href="mailto:kiko@kikocampos.com">kiko@kikocampos.com</a>
-      </div>
-    </div>
-    <div class="ficha">
-      Estudo independente · Junho de 2026<br>
-      Base 4.991 respondentes · 18 itens · 7 momentos<br>
-      Métrica-mestra: Saldo Líquido (top box − 2 box)<br>
-      Réguas ancoradas em Reichheld/Bain e convenções de clima<br>
-      Fontes externas: ABRES · NACE · Gallup · McKinsey
-    </div>
-    <div class="copy">© 2026 Kiko Campos. Todos os direitos reservados. · Parte do ecossistema kikocampos.com · <a href="https://jovens.kikocampos.com" style="color:var(--ink-soft);display:inline">jovens</a> · <a href="https://mente.kikocampos.com" style="color:var(--ink-soft);display:inline">mente</a></div>
+<footer><div class="wrap">
+  <div class="footgrid">
+    <div class="fcol"><a class="brand" href="https://kikocampos.com/" style="padding:0"><span class="dot"></span>kiko campos</a>
+      <p>Liderança executiva e transformação cultural. Cultura como sistema vivo, integrado e mensurável.</p></div>
+    <div class="fcol"><div class="fh">Pesquisa</div>
+      <a href="https://jovens.kikocampos.com">Resultados completos</a><a href="#penhasco">O penhasco dos 60 dias</a><a href="#materiais">Os dois materiais</a><a href="https://jovens.kikocampos.com/workbook.html">Workbook do Jovem Talento</a><a href="https://jovens.kikocampos.com/solucoes/Resumo_Executivo_JT2026.pdf">Resumo Executivo</a></div>
+    <div class="fcol"><div class="fh">Ecossistema</div>
+      <a href="https://kikocampos.com/palestras.html">Palestras &amp; Keynotes</a><a href="https://kikocampos.com/programas.html">Programas &amp; Raio-X de Cultura</a><a href="https://mente.kikocampos.com">Mente no Trabalho</a><a href="mailto:kiko@kikocampos.com">kiko@kikocampos.com</a></div>
+    <div class="fcol"><div class="fh">Ficha do estudo</div>
+      <p class="ficha-f" style="margin:0">Estudo independente · Junho de 2026<br>Base 4.991 respondentes · 18 itens · 7 momentos<br>Métrica-mestra: Saldo Líquido (top box − 2 box)<br>Réguas ancoradas em Reichheld/Bain e convenções de clima<br>Fontes externas: ABRES · NACE · Gallup · McKinsey</p></div>
   </div>
-</footer>
+  <div class="fbase">© 2026 Kiko Campos. Todos os direitos reservados. · Parte do ecossistema kikocampos.com · <a href="https://jovens.kikocampos.com">jovens</a> · <a href="https://mente.kikocampos.com">mente</a></div>
+</div></footer>
 
+<script src="assets/site.js"></script>
 <script>
 (function(){
   var ACTION = "https://docs.google.com/forms/d/e/1FAIpQLSfpSC-jEnh8XxHplyyTdsv8-D0grBUS-hpfKiO3R7kvJJO3zw/formResponse";
