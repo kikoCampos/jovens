@@ -765,5 +765,74 @@ function kcLgpd(ok){kcSetCookie(ok?'accepted':'declined');document.getElementByI
 if(document.cookie.indexOf('kc_cookie=')===-1){document.getElementById('lgpd').style.display='block';}
 document.addEventListener('click',function(e){var a=e.target.closest('a.btn,a.sol-dl a,.sol-dl a,a[href$=".pdf"],a[href*="kikocampos.com"],a[href*="docs.google.com"]');if(a&&window.gtag){gtag('event','cta_click',{cta:(a.textContent||'').trim().slice(0,60),destino:a.getAttribute('href')||'',pagina:location.pathname});}});
 </script>
+<!-- celular: página mais curta, nada removido — detalhes abrem ao toque (só até 900 px) -->
+<style>
+@media(max-width:900px){
+  .mc-h{cursor:pointer;position:relative;padding-right:34px!important;-webkit-tap-highlight-color:transparent}
+  .mc-h::after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);font:300 1.6rem/1 Inter,system-ui,sans-serif;color:#FF8A3D}
+  .mc.open .mc-h::after{content:"–"}
+  .mc:not(.open) .mc-b{display:none!important}
+  .mcl{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+  .mcl-btn{display:inline-block;margin:8px 0 0;padding:6px 0;background:none;border:0;color:#FF8A3D;font:600 .9rem Inter,system-ui,sans-serif;cursor:pointer}
+  .gal .mc-x{display:none!important}
+  .gal-more{grid-column:1/-1;margin-top:4px;padding:14px 18px;border-radius:100px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.2);color:#EAF1FB;font:600 .95rem Inter,system-ui,sans-serif;cursor:pointer}
+  .base.mc .bq{margin-bottom:0}
+  .base.mc.open .bq{margin-bottom:14px}
+  #hero-stats-fix,.stat-row{grid-template-columns:1fr 1fr!important}
+  .stat-row .stat{padding:16px 12px 18px!important}
+  .stat-row .stat:nth-child(odd){border-right:1px solid rgba(255,255,255,.10)!important}
+  .metodo-box.mc{padding-bottom:12px}
+  .metodo-box.mc .mb-title{border-bottom:0;margin-bottom:0;padding-bottom:0}
+  .metodo-box.mc.open .mb-title{border-bottom:1px solid rgba(255,255,255,.10);padding-bottom:12px;margin-bottom:4px}
+  .funil-grid{gap:14px!important}
+  .find.mc h3,.frente.mc h3,.sol.mc h3{margin-bottom:0}
+  .find.mc.open h3,.frente.mc.open h3,.sol.mc.open h3{margin-bottom:10px}
+}
+</style>
+<script>
+(function(){
+  if(!window.matchMedia('(max-width:900px)').matches)return;
+  function mc(item,head,bodies,open){
+    if(!item||!head)return;item.classList.add('mc');head.classList.add('mc-h');
+    head.setAttribute('role','button');head.setAttribute('tabindex','0');
+    bodies.forEach(function(b){if(b&&b!==head)b.classList.add('mc-b')});
+    if(open)item.classList.add('open');head.setAttribute('aria-expanded',item.classList.contains('open'));
+  }
+  function kids(item,keep){return [].filter.call(item.children,function(c){return !keep.some(function(s){return c.matches(s)})})}
+  document.addEventListener('click',function(e){var h=e.target.closest('.mc-h');if(!h)return;var it=h.closest('.mc');var o=it.classList.toggle('open');h.setAttribute('aria-expanded',o);
+    if(it.classList.contains('base')){var i=[].indexOf.call(it.parentNode.children,it);window.__mcBase=window.__mcBase||{};window.__mcBase[i]=o}});
+  document.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('mc-h')){e.preventDefault();e.target.click()}});
+  function clamp(el){if(!el||el.classList.contains('mcl'))return;el.classList.add('mcl');
+    if(el.scrollHeight<=el.clientHeight+4){el.classList.remove('mcl');return}
+    var b=document.createElement('button');b.type='button';b.className='mcl-btn';b.textContent='Ler mais';
+    b.onclick=function(){el.classList.remove('mcl');b.remove()};el.insertAdjacentElement('afterend',b)}
+  window.__mcRun=function(){
+    /* 01 achados: título visível, explicação ao toque */
+    document.querySelectorAll('#achados .find').forEach(function(f){mc(f,f.querySelector('h3'),kids(f,['.fn','h3']))});
+    clamp(document.querySelector('#achados .lens-note'));
+    /* 02 as 18 perguntas: a primeira base aberta, as outras ao toque */
+    var m=window.__mcBase||{0:true};
+    document.querySelectorAll('#bases .base').forEach(function(b,i){mc(b,b.querySelector('h3'),[].slice.call(b.querySelectorAll('.item')),!!m[i])});
+    /* 03 jornada: textos longos em 3 linhas */
+    document.querySelectorAll('#jornada .wrap > p, #jornada .wrap > div > p').forEach(clamp);
+    /* 06 frentes: título e dono visíveis, detalhe ao toque */
+    document.querySelectorAll('#frentes .frente').forEach(function(f){mc(f,f.querySelector('h3'),[f.querySelector('.fd')])});
+    clamp(document.querySelector('#frentes .porque p'));
+    /* 07 materiais: tipo, nome e botão visíveis; descrição ao toque */
+    document.querySelectorAll('#solucoes .sol').forEach(function(s){mc(s,s.querySelector('h3'),[s.querySelector('p'),s.querySelector('.sfor'),s.querySelector('.req-note')])});
+    var mb=document.querySelector('.metodo-box');if(mb)mc(mb,mb.querySelector('.mb-title'),kids(mb,['.mb-title']));
+    clamp(document.querySelector('#solucoes .sistema-note'));
+    /* 08 evento: 3 fotos e o botão para ver as outras */
+    var g=document.querySelector('#evento .gal');
+    if(g&&!g.querySelector('.gal-more')){var fs=g.querySelectorAll('figure');if(fs.length>3){
+      for(var i=3;i<fs.length;i++)fs[i].classList.add('mc-x');
+      var bt=document.createElement('button');bt.type='button';bt.className='gal-more';bt.textContent='Ver mais '+(fs.length-3)+' fotos do evento';
+      bt.onclick=function(){g.querySelectorAll('.mc-x').forEach(function(f){f.classList.remove('mc-x')});bt.remove()};g.appendChild(bt)}}
+    clamp(document.querySelector('#evento .sec-intro'));clamp(document.querySelector('#evento .premio-txt p'));
+  };
+  window.__mcRun();
+  var hb=document.getElementById('bases');if(hb)new MutationObserver(function(){window.__mcRun()}).observe(hb,{childList:true});
+})();
+</script>
 </body>
 </html>
