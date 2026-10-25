@@ -294,6 +294,13 @@ gtag('config','G-RD1P3CKLSE');
   .ev-p{color:var(--ink-soft);font-size:1.02rem;margin:0 0 16px}
   .ev-p em{color:var(--ink)}
   @media(max-width:900px){.ev-teaser{grid-template-columns:1fr;gap:20px}}
+
+  /* certificação 25/10 */
+  .vale-table th{font-size:.72rem!important;color:#9FB0CB!important}
+  .chart-title,.lens-sub{font-size:.74rem!important;color:#9FB0CB!important}
+  .au-logo img{background:#fff;border-radius:12px;padding:10px 14px;box-sizing:content-box}
+  h1,h2,h3{text-wrap:balance}
+  @media(max-width:600px){.vale-table{font-size:.82rem}.vale-table td,.vale-table th{padding:8px 4px}.vale-table td:first-child{white-space:nowrap;font-size:.7rem}.vale-table th{font-size:.6rem!important;letter-spacing:.06em}}
 </style>
 </head>
 <body>
@@ -690,25 +697,27 @@ render();
 /* ---------- curva de NPS ---------- */
 const NPS=[{m:'M1',t:'30 dias',v:10,n:511},{m:'M2',t:'60 dias',v:-2,n:431},{m:'M3',t:'90 dias',v:3,n:548},{m:'M4',t:'6 meses',v:6,n:1607},{m:'M5',t:'12 meses',v:3,n:984},{m:'M6',t:'18 meses',v:8,n:385},{m:'M7',t:'24 meses',v:8,n:525}];
 (function(){
-  const W=980,H=340,P={l:46,r:26,t:34,b:44};
+  const MOB=window.matchMedia('(max-width:600px)').matches,K=MOB?1:1;
+  const W=MOB?420:980,H=MOB?300:340,P=MOB?{l:40,r:22,t:40,b:46}:{l:46,r:26,t:34,b:44},FS=MOB?14:11,FB=MOB?17:14;
+  const SH={'30 dias':'30d','60 dias':'60d','90 dias':'90d','6 meses':'6m','12 meses':'12m','18 meses':'18m','24 meses':'24m'};
   const xs=i=>P.l+i*(W-P.l-P.r)/(NPS.length-1);
   const ys=v=>P.t+(12-v)*(H-P.t-P.b)/(12-(-4));
   let s='<svg id="npssvg" viewBox="0 0 '+W+' '+H+'" style="width:100%;height:auto" role="img" aria-label="Curva de NPS ao longo da jornada: começa em mais 10 aos 30 dias, cai para menos 2 aos 60 dias e se recupera até mais 8 aos 24 meses.">';
   [-4,0,4,8,12].forEach(g=>{
     s+='<line x1="'+P.l+'" y1="'+ys(g)+'" x2="'+(W-P.r)+'" y2="'+ys(g)+'" stroke="'+(g===0?'rgba(255,255,255,.30)':'rgba(255,255,255,.10)')+'" stroke-width="1"/>';
-    s+='<text x="'+(P.l-10)+'" y="'+(ys(g)+4)+'" text-anchor="end" font-size="11" fill="#8A9DBE">'+(g>0?'+':'')+g+'</text>';
+    s+='<text x="'+(P.l-10)+'" y="'+(ys(g)+4)+'" text-anchor="end" font-size="'+FS+'" fill="#9FB0CB">'+(g>0?'+':'')+g+'</text>';
   });
   s+='<rect x="'+(xs(0.5))+'" y="'+P.t+'" width="'+(xs(1.5)-xs(0.5))+'" height="'+(H-P.t-P.b)+'" fill="rgba(255,107,74,.13)"/>';
-  s+='<text x="'+xs(1)+'" y="'+(P.t-12)+'" text-anchor="middle" font-size="11" letter-spacing="2" fill="#FF6B4A">O PENHASCO</text>';
+  s+='<text x="'+xs(1)+'" y="'+(P.t-12)+'" text-anchor="middle" font-size="'+FS+'" letter-spacing="2" fill="#FF6B4A">O PENHASCO</text>';
   const pts=NPS.map((d,i)=>[xs(i),ys(d.v)]);
   s+='<path d="M'+pts.map(p=>p.join(' ')).join(' L ')+'" fill="none" stroke="#F2B33D" stroke-width="2.5" stroke-linejoin="round"/>';
   NPS.forEach((d,i)=>{
     const hot=i===1;
     s+='<circle cx="'+pts[i][0]+'" cy="'+pts[i][1]+'" r="'+(hot?7:5)+'" fill="'+(hot?'#FF6B4A':'#F2B33D')+'" stroke="#0E2140" stroke-width="2"/>';
     if(i===0||i===1||i===NPS.length-1){
-      s+='<text x="'+pts[i][0]+'" y="'+(pts[i][1]+(d.v<0?26:-14))+'" text-anchor="middle" font-size="14" font-weight="600" fill="'+(hot?'#FF6B4A':'#EAF1FB')+'">'+(d.v>0?'+':'')+d.v+'</text>';
+      s+='<text x="'+pts[i][0]+'" y="'+(pts[i][1]+(d.v<0?26:-14))+'" text-anchor="middle" font-size="'+FB+'" font-weight="600" fill="'+(hot?'#FF6B4A':'#EAF1FB')+'">'+(d.v>0?'+':'')+d.v+'</text>';
     }
-    s+='<text x="'+pts[i][0]+'" y="'+(H-P.b+24)+'" text-anchor="middle" font-size="11" fill="#8A9DBE">'+d.t+'</text>';
+    s+='<text x="'+pts[i][0]+'" y="'+(H-P.b+24)+'" text-anchor="middle" font-size="'+FS+'" fill="#9FB0CB">'+(MOB?SH[d.t]:d.t)+'</text>';
     s+='<rect class="hz" data-i="'+i+'" x="'+(pts[i][0]-((W-P.l-P.r)/(NPS.length-1))/2)+'" y="'+P.t+'" width="'+((W-P.l-P.r)/(NPS.length-1))+'" height="'+(H-P.t-P.b)+'" fill="transparent"/>';
   });
   s+='</svg>';
