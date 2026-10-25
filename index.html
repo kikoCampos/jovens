@@ -297,7 +297,7 @@ gtag('config','G-RD1P3CKLSE');
 
   /* certificação 25/10 */
   .vale-table th{font-size:.72rem!important;color:#9FB0CB!important}
-  .chart-title,.lens-sub{font-size:.74rem!important;color:#9FB0CB!important}
+  .chart-title,.lens-sub,.regua{font-size:.8rem!important;color:#9FB0CB!important}
   .au-logo img{background:#fff;border-radius:12px;padding:10px 14px;box-sizing:content-box}
   h1,h2,h3{text-wrap:balance}
   @media(max-width:600px){.vale-table{font-size:.82rem}.vale-table td,.vale-table th{padding:8px 4px}.vale-table td:first-child{white-space:nowrap;font-size:.7rem}.vale-table th{font-size:.6rem!important;letter-spacing:.06em}}
@@ -705,7 +705,7 @@ const NPS=[{m:'M1',t:'30 dias',v:10,n:511},{m:'M2',t:'60 dias',v:-2,n:431},{m:'M
   let s='<svg id="npssvg" viewBox="0 0 '+W+' '+H+'" style="width:100%;height:auto" role="img" aria-label="Curva de NPS ao longo da jornada: começa em mais 10 aos 30 dias, cai para menos 2 aos 60 dias e se recupera até mais 8 aos 24 meses.">';
   [-4,0,4,8,12].forEach(g=>{
     s+='<line x1="'+P.l+'" y1="'+ys(g)+'" x2="'+(W-P.r)+'" y2="'+ys(g)+'" stroke="'+(g===0?'rgba(255,255,255,.30)':'rgba(255,255,255,.10)')+'" stroke-width="1"/>';
-    s+='<text x="'+(P.l-10)+'" y="'+(ys(g)+4)+'" text-anchor="end" font-size="'+FS+'" fill="#9FB0CB">'+(g>0?'+':'')+g+'</text>';
+    s+='<text x="'+(P.l-10)+'" y="'+(ys(g)+4)+'" text-anchor="end" font-size="'+FS+'" fill="#9FB0CB">'+((MOB&&g===12)?'':(g>0?'+':'')+g)+'</text>';
   });
   s+='<rect x="'+(xs(0.5))+'" y="'+P.t+'" width="'+(xs(1.5)-xs(0.5))+'" height="'+(H-P.t-P.b)+'" fill="rgba(255,107,74,.13)"/>';
   s+='<text x="'+xs(1)+'" y="'+(P.t-12)+'" text-anchor="middle" font-size="'+FS+'" letter-spacing="2" fill="#FF6B4A">O PENHASCO</text>';
@@ -715,7 +715,7 @@ const NPS=[{m:'M1',t:'30 dias',v:10,n:511},{m:'M2',t:'60 dias',v:-2,n:431},{m:'M
     const hot=i===1;
     s+='<circle cx="'+pts[i][0]+'" cy="'+pts[i][1]+'" r="'+(hot?7:5)+'" fill="'+(hot?'#FF6B4A':'#F2B33D')+'" stroke="#0E2140" stroke-width="2"/>';
     if(i===0||i===1||i===NPS.length-1){
-      s+='<text x="'+pts[i][0]+'" y="'+(pts[i][1]+(d.v<0?26:-14))+'" text-anchor="middle" font-size="'+FB+'" font-weight="600" fill="'+(hot?'#FF6B4A':'#EAF1FB')+'">'+(d.v>0?'+':'')+d.v+'</text>';
+      s+='<text x="'+pts[i][0]+'" y="'+(pts[i][1]+(d.v<0?(MOB?32:26):-14))+'" text-anchor="middle" font-size="'+FB+'" font-weight="600" fill="'+(hot?'#FF6B4A':'#EAF1FB')+'">'+(d.v>0?'+':'')+d.v+'</text>';
     }
     s+='<text x="'+pts[i][0]+'" y="'+(H-P.b+24)+'" text-anchor="middle" font-size="'+FS+'" fill="#9FB0CB">'+(MOB?SH[d.t]:d.t)+'</text>';
     s+='<rect class="hz" data-i="'+i+'" x="'+(pts[i][0]-((W-P.l-P.r)/(NPS.length-1))/2)+'" y="'+P.t+'" width="'+((W-P.l-P.r)/(NPS.length-1))+'" height="'+(H-P.t-P.b)+'" fill="transparent"/>';

@@ -220,7 +220,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:rgba(0,0,
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
 
-  @media(max-width:600px){.chartbox svg text{font-size:22px}}
+  @media(max-width:600px){.chartbox svg text:not([font-size]){font-size:22px}}
   h1,h2,h3{text-wrap:balance}
 </style>
 </head>
@@ -478,7 +478,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:rgba(0,0,
       <ul class="credlist">
         <li><b>4.991</b><span>estagiários ouvidos em todo o Brasil</span></li>
         <li><b>39 mil</b><span>inscritos na newsletter Mente no Trabalho</span></li>
-        <li><b>+20 anos</b><span>transformando cultura em resultado, em 12 países</span></li>
+        <li><b style="white-space:nowrap">+20&nbsp;anos</b><span>transformando cultura em resultado, em 12 países</span></li>
         <li><b>16</b><span>operações e marcas com cultura construída lado a lado</span></li>
       </ul>
     </div>
